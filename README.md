@@ -16,8 +16,8 @@ A cloud automation bot built with **Google Apps Script**, **Gemini AI**, and the
 
 ## 🛠️ Tech Stack
 
-- **Engine:** [Google Apps Script](https://developers.google.com/apps-script) (JavaScript runtime)
-- **AI Model:** Google Gemini API (`v1beta`)
+- **Engine:** Google Apps Script (JavaScript runtime)
+- **AI Model:** Google Gemini API (v1beta)
 - **Services:** GmailApp, PropertiesService, UrlFetchApp, LockService
 - **Messaging:** Telegram Bot API
 
@@ -26,35 +26,36 @@ A cloud automation bot built with **Google Apps Script**, **Gemini AI**, and the
 ## 🚀 Setup & Installation
 
 ### 1. Requirements
-- A Google account with access to [Google Apps Script](https://script.google.com/).
-- A Telegram Bot token obtained from [@BotFather](https://t.me/BotFather).
-- Your personal Telegram Chat ID (obtainable via [@userinfobot](https://t.me/userinfobot)).
+- A Google account with access to Google Apps Script.
+- A Telegram Bot token obtained from @BotFather.
+- Your personal Telegram Chat ID (obtainable via @userinfobot).
 - A Google AI Studio API key.
 
 ### 2. Deployment
-1. Open [Google Apps Script](https://script.google.com/) and create a new project named **Email Checker**.
+1. Open Google Apps Script and create a new project named **Email Checker**.
 2. Replace any default code with the contents of `Code.js`.
-3. Fill in your credentials in the `CONFIGURATION` block:
-   ```javascript
-   const BOT_TOKEN = "YOUR_TELEGRAM_BOT_TOKEN";
-   const CHAT_ID = "YOUR_TELEGRAM_CHAT_ID";
-   const GEMINI_API_KEY = "YOUR_GEMINI_API_KEY";
-
-  Save the project (Ctrl + S or Cmd + S).
+3. Fill in your credentials in the `CONFIGURATION` block (BOT_TOKEN, CHAT_ID, GEMINI_API_KEY).
+4. Save the project (Ctrl + S or Cmd + S).
 
 ### 3. Verification & Activation
-1. Select the testGemini function from the run toolbar and click Run to verify Telegram integration and API connectivity.
-
+1. Select the `testGemini` function from the run toolbar and click **Run** to verify Telegram integration and API connectivity.
 2. Grant the necessary OAuth scopes for Gmail and external network requests when prompted.
+3. Select `startEmailTranslator` and click **Run**. This clears prior checkpoints, processes emails from the last 24 hours, and registers a recurring trigger to check every 3 hours.
 
-3. Select startEmailTranslator and click Run. This clears prior checkpoints, processes emails from the last 24 hours, and registers a recurring trigger to check every 3 hours.
+---
 
-📝 Configuration Options
-Constant	Description	Default
-CHECK_EVERY_HOURS	Interval for scheduled checks	3
-INITIAL_LOOKBACK_HOURS	Historical range on initialization	24
-MAX_THREADS	Maximum threads retrieved per execution	500
-MAX_EMAIL_LENGTH	Character truncation cap for email bodies	12000
-GEMINI_MAX_RETRIES	Retry attempts per model before fallback	5
-📄 License
+## 📝 Configuration Options
+
+| Constant | Description | Default |
+| :--- | :--- | :--- |
+| `CHECK_EVERY_HOURS` | Interval for scheduled checks | `3` |
+| `INITIAL_LOOKBACK_HOURS` | Historical range on initialization | `24` |
+| `MAX_THREADS` | Maximum threads retrieved per execution | `500` |
+| `MAX_EMAIL_LENGTH` | Character truncation cap for email bodies | `12000` |
+| `GEMINI_MAX_RETRIES` | Retry attempts per model before fallback | `5` |
+
+---
+
+## 📄 License
+
 This project is open-source under the MIT License.
